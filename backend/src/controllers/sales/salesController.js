@@ -89,7 +89,9 @@ const updateSale = async (req, res) => {
     const { customer, products, totalAmount, saleDate } = req.body; // Destructure the correct fields
 
     // Ensure that saleDate is parsed correctly
-    const parsedSaleDate = new Date(saleDate);
+    const parsedSaleDate = isNaN(Date.parse(saleDate))
+      ? new Date()
+      : new Date(saleDate);
     if (isNaN(parsedSaleDate)) {
       return res.status(400).json({ message: "Invalid sale date" });
     }
