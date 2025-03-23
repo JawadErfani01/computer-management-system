@@ -10,6 +10,7 @@ import errorHandler from "./middleware/errorMiddleware.js";
 import categoryRoutes from "./routes/products/categoryRoutes.js";
 import customerRoutes from "./routes/customers/customerRoutes.js";
 import salesRoutes from "./routes/sales/salesRoutes.js";
+import dashboardRoute from "./routes/dashboard/dashboardRoutes.js";
 // Import category routes
 dotenv.config();
 connectDB();
@@ -29,6 +30,7 @@ app.use("/api/products/category", categoryRoutes);
 app.use("/api/products", productRoutes);
 app.use("/api/customers", customerRoutes);
 app.use("/api/sales", salesRoutes);
+app.use("/api/dashboard", dashboardRoute);
 app.use(errorHandler);
 
 export default app;
